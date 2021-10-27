@@ -44,5 +44,12 @@ console.log(result)
 
 btn.style.color = 'white'
 btn.style.backgroundColor = 'red'
-btn.style.width = '100vw'
-btn.style.height = '100vh'
+// btn.style.width = '100vw'
+// btn.style.height = '100vh'
+
+const first = document.querySelector('#first')
+const second = document.createElement('div')
+second.innerHTML = first.innerHTML
+document.body.append(second)
+// second.remove()
+// document.body.removeChild(first)
