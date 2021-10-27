@@ -37,3 +37,7 @@ const person = {
 }
 
 console.log(person)
+
+let text = 'Peter Johnson'
+let result = text.charAt(text.length - 1)
+console.log(result)
