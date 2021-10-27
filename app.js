@@ -1,3 +1,5 @@
+'use strict'
+
 const btn = document.querySelector('.btn')
 btn.addEventListener('click', () => {
   console.log('button clicked')
@@ -25,3 +27,13 @@ names.forEach((item) => {
 const hello = function () {
   return 'hello'
 }
+
+const person = {
+  name: 'abhishek',
+  age: 20,
+  hello() {
+    return `hello ${this.name}`
+  },
+}
+
+console.log(person)
