@@ -41,3 +41,8 @@ console.log(person)
 let text = 'Peter Johnson'
 let result = text.charAt(text.length - 1)
 console.log(result)
+
+btn.style.color = 'white'
+btn.style.backgroundColor = 'red'
+btn.style.width = '100vw'
+btn.style.height = '100vh'
