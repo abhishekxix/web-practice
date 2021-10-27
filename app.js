@@ -21,3 +21,7 @@ const names = [
 names.forEach((item) => {
   console.log(item)
 })
+
+const hello = function () {
+  return 'hello'
+}
