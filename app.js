@@ -242,7 +242,7 @@
 // // hoisting does not work with arrow functions because they have to be assigned to a variable
 
 // Destructuring in ES6
-const fruits = ['orange', 'banana', 'lemon'];
+// const fruits = ['orange', 'banana', 'lemon'];
 
 // const [a, b, c, d, e, f] = fruits;
 // console.log(a, b, c, d, e, f);
@@ -255,54 +255,74 @@ let second = 'john';
 // swapping using array destructuring
 [second, first] = [first, second]; */
 
-// Object destructuring
-const bob = {
-  first: 'bob',
-  last: 'sanders',
-  city: 'chicago',
-  siblings: {
-    sister: 'jane',
-  },
-};
-// the variable name must match the name of the property we want to access and assign to it
-const {
-  first: firstName,
-  last,
-  city,
-  siblings: { sister: favoriteSibling },
-} = bob;
+// // Object destructuring
+// const bob = {
+//   first: 'bob',
+//   last: 'sanders',
+//   city: 'chicago',
+//   siblings: {
+//     sister: 'jane',
+//   },
+// };
+// // the variable name must match the name of the property we want to access and assign to it
+// const {
+//   first: firstName,
+//   last,
+//   city,
+//   siblings: { sister: favoriteSibling },
+// } = bob;
 
-console.log(firstName, last, city, favoriteSibling);
-// destructuring can also be used with function arguments when an object is passed
+// console.log(firstName, last, city, favoriteSibling);
+// // destructuring can also be used with function arguments when an object is passed
 
-function printPerson({
-  first: firstName,
-  last,
-  city,
-  siblings: { sister: favoriteSibling },
-}) {
-  console.log(firstName, last, city, favoriteSibling);
+// function printPerson({
+//   first: firstName,
+//   last,
+//   city,
+//   siblings: { sister: favoriteSibling },
+// }) {
+//   console.log(firstName, last, city, favoriteSibling);
+// }
+// printPerson(bob);
+
+// // ___________________________-
+// // new string methods in es6
+// const person = 'Peter Smith';
+// const employee = '23456-EMP-PETER-SMITH';
+// const manager = '23456-MAN-JOHN-DOE';
+
+// // startsWith
+// console.log(person.startsWith('Pet'));
+// console.log(employee.startsWith('EMP', 6));
+
+// // endsWith
+// console.log(manager.endsWith('DOE'));
+// console.log(manager.endsWith('DOE', 9));
+
+// // includes
+// console.log(employee.includes('PET'));
+
+// // repeat
+// const multiplyPeople = (person, amount) => person.repeat(amount);
+
+// console.log(multiplyPeople(person, 50));
+
+const fruits = ['apple', 'orange', 'banana', 'peach'];
+const longName = 'John Smith Pepper III';
+let shortName = '';
+// for of loops through the values of an iterable object
+// String, Array, Map, Set, etc.
+
+for (const letter of longName) {
+  if (letter === ' ') {
+    continue;
+  }
+  shortName += letter;
 }
-printPerson(bob);
 
-// ___________________________-
-// new string methods in es6
-const person = 'Peter Smith';
-const employee = '23456-EMP-PETER-SMITH';
-const manager = '23456-MAN-JOHN-DOE';
+console.log(shortName);
 
-// startsWith
-console.log(person.startsWith('Pet'));
-console.log(employee.startsWith('EMP', 6));
-
-// endsWith
-console.log(manager.endsWith('DOE'));
-console.log(manager.endsWith('DOE', 9));
-
-// includes
-console.log(employee.includes('PET'));
-
-// repeat
-const multiplyPeople = (person, amount) => person.repeat(amount);
-
-console.log(multiplyPeople(person, 50));
+for (const fruit of fruits) {
+  if (fruit === 'banana') continue;
+  console.log(fruit);
+}
