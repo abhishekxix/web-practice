@@ -55,23 +55,63 @@ document.body.append(second)
 // document.body.removeChild(first)
  */
 
-const btn = document.querySelector('.btn')
-const container = document.querySelector('.container')
-// const heading = document.querySelector('.heading')
+// const btn = document.querySelector('.btn')
+// const container = document.querySelector('.container')
+// // const heading = document.querySelector('.heading')
 
-function sayHello() {
-  console.log('hello there')
+// function sayHello() {
+//   console.log('hello there')
+// }
+
+// // heading.addEventListener('click', sayHello)
+
+// btn.addEventListener('click', function () {
+//   const element = document.createElement('h1')
+//   element.classList.add('heading')
+//   element.textContent = `I am inside container`
+//   container.appendChild(element)
+// })
+
+// container.addEventListener('click', function (e) {
+//   if (e.target.classList.contains('heading')) console.log('hello there')
+// })
+
+// IIFE - Immediately Invoked function expressions
+const num1 = 30;
+const num2 = 50;
+
+function add() {
+  // can access global variables
+  console.log(`the result is: ${num1 + num2}`);
 }
 
-// heading.addEventListener('click', sayHello)
+add();
 
-btn.addEventListener('click', function () {
-  const element = document.createElement('h1')
-  element.classList.add('heading')
-  element.textContent = `I am inside container`
-  container.appendChild(element)
-})
+// this was useful when only var was available
+// it was an emulation of the block scope
+(function () {
+  const num3 = 59;
+  const num4 = 50;
+  // these are not accessible out of the IIFE
+  console.log('hello world');
+})();
 
-container.addEventListener('click', function (e) {
-  if (e.target.classList.contains('heading')) console.log('hello there')
-})
+const result = (function () {
+  const num3 = 59;
+  const num4 = 50;
+  // these are not accessible out of the IIFE
+  console.log('hello world');
+})(); //it is invoked immediately
+
+// function and var declarations are hoisted
+// var values are not hoisted
+// let and const are not
+
+function outer() {
+  function inner() {
+    console.log(`hello there secret is : `);
+  }
+  return inner;
+}
+
+outer();
