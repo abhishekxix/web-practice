@@ -77,6 +77,7 @@ document.body.append(second)
 // })
 
 // IIFE - Immediately Invoked function expressions
+
 const num1 = 30;
 const num2 = 50;
 
