@@ -1,14 +1,19 @@
-import { random } from './utils/data.js'; //for named export
-import rdm from './utils/data.js'; // for default export
-import { people } from './utils/data.js';
-import showPeople from './utils/showPeople.js';
-import get from './utils/getElement.js';
+// JS is single threaded, synchronous language
+// make soup
+// chop onion
+// boil water for 10 minutes
+// add carrots and boil for 5 minutes
+// add onion and boil water for 5 minutes
 
-const btn = get('.btn');
+boilWater(0);
+console.log('chop carrot');
+// boilWater(5000);
+console.log('chop onion');
+// boilWater(5000);
 
-btn.addEventListener('click', () => {
-  showPeople(people);
-});
+for (let i = 0; i < 10000; i++) console.log('busy');
 
-console.log(random);
-console.log(rdm);
+function boilWater(time) {
+  console.log('boiling...');
+  setTimeout(() => console.log('done', time), time);
+}
