@@ -284,3 +284,25 @@ function printPerson({
   console.log(firstName, last, city, favoriteSibling);
 }
 printPerson(bob);
+
+// ___________________________-
+// new string methods in es6
+const person = 'Peter Smith';
+const employee = '23456-EMP-PETER-SMITH';
+const manager = '23456-MAN-JOHN-DOE';
+
+// startsWith
+console.log(person.startsWith('Pet'));
+console.log(employee.startsWith('EMP', 6));
+
+// endsWith
+console.log(manager.endsWith('DOE'));
+console.log(manager.endsWith('DOE', 9));
+
+// includes
+console.log(employee.includes('PET'));
+
+// repeat
+const multiplyPeople = (person, amount) => person.repeat(amount);
+
+console.log(multiplyPeople(person, 50));
