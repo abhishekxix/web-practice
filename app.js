@@ -108,11 +108,38 @@ const result = (function () {
 // var values are not hoisted
 // let and const are not
 
+// --------------------------
+// Closures are functions that return a function
+// Closure gives access to an outer function's scope from an inner function
+// make private variables with closure
 function outer() {
+  let privateVar = 'secret';
+
   function inner() {
-    console.log(`hello there secret is : `);
+    console.log(`hello there secret is : ${privateVar}`);
   }
   return inner;
 }
 
-outer();
+// outer()();
+const value = outer();
+console.log(value);
+value();
+
+// ----------------------------------------
+function newAccount(name, initialBalance) {
+  let balance = initialBalance;
+  function showBalance() {
+    console.log(`Hey ${name}, your balance is ${balance}`);
+  }
+  return showBalance;
+}
+
+// Inner will remember the values when closure was invoked
+const susan = newAccount('susan', 500);
+const john = newAccount('john', 4000);
+const bobo = newAccount('bobo', 1000);
+
+susan();
+john();
+bobo();
