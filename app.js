@@ -5,15 +5,23 @@
 // add carrots and boil for 5 minutes
 // add onion and boil water for 5 minutes
 
-boilWater(0);
-console.log('chop carrot');
-// boilWater(5000);
-console.log('chop onion');
-// boilWater(5000);
-
-for (let i = 0; i < 10000; i++) console.log('busy');
+boilWater(10000);
 
 function boilWater(time) {
   console.log('boiling...');
-  setTimeout(() => console.log('done', time), time);
+  console.log('chop carrot');
+
+  setTimeout(() => {
+    console.log('add carrots');
+
+    console.log('chop onion');
+
+    setTimeout(() => {
+      console.log('carrots are done.');
+      console.log('add onions');
+      setTimeout(() => {
+        console.log('soup is done');
+      }, 5000);
+    }, 5000);
+  }, time);
 }
