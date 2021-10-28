@@ -1,5 +1,7 @@
+import get from './getElement.js';
+
 const showPeople = (people) => {
-  const container = document.querySelector('.container');
+  const container = get('.container');
   const newPeople = people
     .map((person) => {
       const { name, job } = person;
