@@ -172,3 +172,25 @@ const bobo = newAccount('bobo', 1000);
 
 john.deposit(20000);
 john.withdraw(4300);
+
+// ----------------------------------------------
+// tagged template literals
+
+const author = 'Some author';
+const statement = 'some statement';
+
+const quote = highlight`Here is the ${statement} by ${author} and it could not be more true`;
+const container = document.querySelector('.container');
+// console.log(container);
+const paragraph = document.createElement('div');
+paragraph.innerHTML = quote;
+// console.log(paragraph);
+container.appendChild(paragraph);
+// console.log(quote);
+
+function highlight(text, ...args) {
+  const awesomeText = text.map((item, index) => {
+    return `${item} <strong> ${args[index] || ''}</strong>`;
+  });
+  return awesomeText.join('');
+}
