@@ -1,27 +1,24 @@
-// JS is single threaded, synchronous language
-// make soup
-// chop onion
-// boil water for 10 minutes
-// add carrots and boil for 5 minutes
-// add onion and boil water for 5 minutes
+const heading1 = document.querySelector('.one');
+const heading2 = document.querySelector('.two');
+const heading3 = document.querySelector('.three');
 
-boilWater(10000);
+const btn = document.querySelector('.btn');
 
-function boilWater(time) {
-  console.log('boiling...');
-  console.log('chop carrot');
+btn.addEventListener('click', () => {
+  console.log('hello');
+  addColor(1000, heading1, 'red')
+    .then(() => addColor(1000, heading2, 'green'))
+    .then(() => addColor(1000, heading3, 'blue'))
+    .catch((err) => console.error(err));
+});
 
-  setTimeout(() => {
-    console.log('add carrots');
-
-    console.log('chop onion');
+function addColor(time, element, color) {
+  return new Promise((resolve, reject) => {
+    if (!element) reject();
 
     setTimeout(() => {
-      console.log('carrots are done.');
-      console.log('add onions');
-      setTimeout(() => {
-        console.log('soup is done');
-      }, 5000);
-    }, 5000);
-  }, time);
+      element.style.color = color;
+      resolve();
+    }, time);
+  });
 }
