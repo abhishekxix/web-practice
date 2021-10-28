@@ -366,24 +366,51 @@ let second = 'john';
 // gathers rest of the items
 
 // arrays
-const fruits = ['apple', 'orange', 'banana', 'peach'];
-const [first, second, ...rest] = fruits;
-console.log(rest);
+// const fruits = ['apple', 'orange', 'banana', 'peach'];
+// const [first, second, ...rest] = fruits;
+// console.log(rest);
 
-// objects
-const person = {
-  name: 'john',
-  lastName: 'smith',
-  job: 'developer',
-};
-const { job, ...others } = person;
+// // objects
+// const person = {
+//   name: 'john',
+//   lastName: 'smith',
+//   job: 'developer',
+// };
+// const { job, ...others } = person;
 
-console.log(others);
+// console.log(others);
 
-// collecting the function parameters
-const getAvg = (name, ...scores) => {
-  let avg = scores.reduce((accumulator, curr) => accumulator + curr);
-  return avg / scores.length;
-};
+// // collecting the function parameters
+// const getAvg = (name, ...scores) => {
+//   let avg = scores.reduce((accumulator, curr) => accumulator + curr);
+//   return avg / scores.length;
+// };
 
-console.log(getAvg('john', 1, 2, 3, 4, 5));
+// console.log(getAvg('john', 1, 2, 3, 4, 5));
+
+// -----------------------------------------
+
+// new Array methods
+// Array.from, Array.of - Not on the prototype
+
+// Array.of() creates array from var args
+const friends = Array.of('john', 1, true);
+console.log(friends);
+
+// Array.from() returns an array with the elements of an object with the length property or an iterable object
+
+const udemy = 'udemy';
+console.log(Array.from(udemy));
+
+function counTotal() {
+  let total = Array.from(arguments).reduce((acc, curr) => acc + curr);
+  return total;
+}
+
+console.log(counTotal(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+const e = document.querySelectorAll('.container');
+// the second argument is the map method callback
+const elements = Array.from(e, (item) => `this is ${item}`);
+
+console.log(elements);
