@@ -326,3 +326,37 @@ for (const fruit of fruits) {
   if (fruit === 'banana') continue;
   console.log(fruit);
 }
+
+// spread operator
+const udemy = 'udemy';
+const boys = ['john', 'peter', 'bob'];
+const girls = ['susan', 'anna'];
+const bestFriend = 'arnold';
+
+const friends = [...boys, ...girls, ...bestFriend];
+console.log(friends);
+
+// const newFriends = friends //this is reference assignment
+const newFriends = [...friends]; // this will produce a copy of friends array
+
+// with es8, we can also use the spread operator with objects
+const person = {
+  name: 'john',
+  job: 'developer',
+};
+const newPerson = { ...person, name: 'peter' }; // override or create new property
+
+newPerson.city = 'chicago';
+
+console.log(newPerson);
+
+// spread operator also helps with conversion from nodelist to array
+
+const divs = document.querySelectorAll('div');
+
+const divlist = [...divs];
+console.log(divlist);
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(Math.max(...numbers));
