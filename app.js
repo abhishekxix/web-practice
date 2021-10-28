@@ -127,19 +127,48 @@ console.log(value);
 value();
 
 // ----------------------------------------
+// function newAccount(name, initialBalance) {
+//   let balance = initialBalance;
+//   function showBalance() {
+//     console.log(`Hey ${name}, your balance is ${balance}`);
+//   }
+//   return showBalance;
+// }
+
+// // Inner will remember the values when closure was invoked
+// const susan = newAccount('susan', 500);
+// const john = newAccount('john', 4000);
+// const bobo = newAccount('bobo', 1000);
+
+// susan();
+// john();
+// bobo();
+
+// ----------------------------------------
+// object with private fields or attributes
 function newAccount(name, initialBalance) {
   let balance = initialBalance;
   function showBalance() {
     console.log(`Hey ${name}, your balance is ${balance}`);
   }
-  return showBalance;
-}
 
-// Inner will remember the values when closure was invoked
+  function deposit(amount) {
+    balance += amount;
+    showBalance();
+  }
+
+  function withdraw(amount) {
+    if (amount > balance)
+      console.log(`Hey ${name}, sorry, not enough funds available`);
+    balance -= amount;
+    showBalance();
+  }
+
+  return { showBalance: showBalance, deposit: deposit, withdraw: withdraw };
+}
 const susan = newAccount('susan', 500);
 const john = newAccount('john', 4000);
 const bobo = newAccount('bobo', 1000);
 
-susan();
-john();
-bobo();
+john.deposit(20000);
+john.withdraw(4300);
