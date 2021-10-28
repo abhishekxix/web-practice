@@ -414,3 +414,24 @@ const e = document.querySelectorAll('.container');
 const elements = Array.from(e, (item) => `this is ${item}`);
 
 console.log(elements);
+
+// find - gets specific item
+// findIndex - gets the first index of the item
+// every - boolean if every item matches the search criteria
+// some - boolean if at least one item matches the search criteria
+
+const people = [
+  { id: 1, name: 'john' },
+  { id: 1, name: 'peter' },
+  { id: 1, name: 'anna' },
+  { id: 1, name: 'anna' },
+  { id: 1, name: 'anna' },
+  { id: 1, name: 'anna' },
+];
+
+console.log(people.find((person) => person.name === 'anna'));
+
+console.log(people.findIndex((person) => person.name === 'anna'));
+
+console.log(people.every((person) => person.name === 'anna'));
+console.log(people.some((person) => person.name === 'anna'));
